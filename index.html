@@ -16,13 +16,14 @@
 
     
     
-      body {
-    font-family: 'Outfit', sans-serif;
-    margin: 40px 200px 0; 
-    background-color: #dbe7e4;
-    color: #333;
-    line-height: 1.8;
+ body {
+  font-family: 'Outfit', sans-serif;
+  margin: 40px 200px 0;
+  background: linear-gradient(90deg, #edf6f9, #f1faee);
+  color: #333;
+  line-height: 1.8;
 }
+
 
         h1, h2, h3 {
             color: #004e64;
@@ -155,36 +156,31 @@ html {
 
 .scroll-top {
   position: fixed;
-  bottom: 16px;
-  right: 16px;
+  bottom: 6px;
+  right: 24px;
   background: var(--primary);
   color: white;
   text-decoration: none;
-  font-size: 24px;
-  width: 50px;
-  height: 50px;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
   text-align: center;
-  line-height: 50px;
+  line-height: 40px;
   border-radius: 50%;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  z-index: 9999;
+  z-index: 999;
   transition: background 0.3s ease;
-  will-change: transform;
-  transform: translateZ(0);
-  pointer-events: auto;
 }
-
 
 .scroll-top:hover {
   background: var(--accent);
 }
 
-     @media (max-width: 768px) {
+@media (max-width: 768px) {
   body {
     margin: 20px 16px 0;
   }
 }
-
 
 
 
