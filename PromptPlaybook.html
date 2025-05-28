@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     
+
+    <title>AI Prompting Cheat Sheet</title>
+    <style>
+    :root {
+  --primary: #004E64;
+  --secondary: #36b37e;
+  --accent: #F08700;
+  --text: #333;
+  --background: #f9f9f9;
+}
+
+    
+    
+      body {
+    font-family: 'Outfit', sans-serif;
+    margin: 40px 200px 0; 
+    background-color: #dbe7e4;
+    color: #333;
+    line-height: 1.8;
+}
+
+        h1, h2, h3 {
+            color: #004e64;
+        }
+        h1 {
+            font-size: 2em;
+            border-bottom: 2px solid #3c6e71;
+            padding-bottom: 0.3em;
+        }
+        h2 {
+            margin-top: 1.5em;
+            font-size: 1.5em;
+        }
+        h3 {
+            margin-top: 1em;
+            font-size: 1.2em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1em 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #efefef;
+        }
+        code {
+            color: #;
+            background: #eee;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        em {
+            display: block;
+            margin-top: 4px;
+            color: #555;
+        }
+        .page-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 30px;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    border-radius: 28px;
+}
+.inhalt a:visited {
+  color: var(--primary);
+}
+.inhalt {
+  margin-bottom: 40px;
+  padding: 0;
+}
+
+.inhalt h2 {
+  font-size: 1.2em;
+  margin-bottom: 12px;
+  color: var(--primary);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.inhalt ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.inhalt li {
+  margin: 6px 0;
+
+  padding-left: 12px;
+  transition: all 0.2s ease;
+}
+
+.inhalt a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95em;
+  display: inline-block;
+  transition: color 0.2s;
+}
+
+.inhalt a:hover {
+  color: var(--accent);
+}
+
+.inhalt {
+  margin: 0 auto 40px auto;
+  padding: 0;
+  max-width: 500px;
+  text-align: center;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+.inhalt a {
+  position: relative;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95em;
+  padding: 4px 0;
+  transition: color 0.3s ease;
+}
+
+.inhalt a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: var(--accent);
+  transition: width 0.8s ease;
+}
+
+.inhalt a:hover::after {
+  width: 100%;
+}
+
+.scroll-top {
+  position: fixed;
+  bottom: 6px;
+  right: 24px;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  z-index: 999;
+  transition: background 0.3s ease;
+}
+
+.scroll-top:hover {
+  background: var(--accent);
+}
+
+
+
+    </style>
+</head>
+<a href="#" class="scroll-top" title="Nach oben">↑</a>
+
+<body>
+    
+    
+    
+   <div class="page-wrapper">
+       <div class="inhalt">
+  <h2></h2>
+  <ul>
+    <li><a href="#section1">1. Thinking Like a Prompt Engineer</a></li>
+    <li><a href="#section2">2. Fundamental Skills</a></li>
+    <li><a href="#section3">3. Avoid These Mistakes</a></li>
+    <li><a href="#section4">4. Prompt Techniques</a></li>
+    <li><a href="#section5">5. Advanced & Strategic</a></li>
+    <li><a href="#section6">6. Expand Your Toolstack</a></li>
+    <li><a href="#section7">7. Prompt Engineering Skill Checklist</a></li>
+  </ul>
+</div>
+
+
+<h1>Prompting Playbook</h1>
+
+<h2 id="section1">1. Thinking Like a Prompt Engineer</h2>
+<p>High-performance prompting is not about hacks – it’s about structured thinking. Great prompts follow intentional design:</p>
+
+<ul>
+    <li><strong>Start with a clear goal:</strong> What outcome do you want? Define it like a creative brief.</li>
+    <li><strong>Add constraints:</strong> Word count, tone, audience, style. Guide the shape of the answer.</li>
+    <li><strong>Define your scenario:</strong> Who’s speaking? Who’s listening? What’s the context?</li>
+    <li><strong>Think in layers:</strong> Use prompt structure like a storyboard: <em>Setting → Background → Goal → Output Style</em></li>
+    <li><strong>Validate output:</strong> Ask the AI to reflect on its own answer, or provide a quality checklist.</li>
+</ul>
+
+<p><strong>Pro Tip:</strong> Use the AI to improve your own prompt. Example:<br>
+<code>"Here’s my prompt: [your prompt]. Suggest 3 better versions optimized for clarity and precision."</code></p>
+
+
+<h2 id="section2">2. Fundamental Skills</h2>
+<p>Prompt engineering is not just about commands — it's about how you think, structure problems, and evaluate output. These skills separate casual users from elite operators.</p>
+
+<table>
+    <tr><th>Skill</th><th>Why it matters</th><th>How to train it</th></tr>
+    <tr>
+        <td><strong>Analytical Thinking</strong></td>
+        <td>Breaks down vague problems into actionable prompt blocks.</td>
+        <td>Practice with logic puzzles, flowcharts, and mock prompt challenges.</td>
+    </tr>
+    <tr>
+        <td><strong>Information Design</strong></td>
+        <td>Structures prompts for clarity, hierarchy, and usability.</td>
+        <td>Study UX writing, table formatting, and communication templates.</td>
+    </tr>
+    <tr>
+        <td><strong>Pattern Sensitivity</strong></td>
+        <td>Recognizes how models respond to structure, style, and example density.</td>
+        <td>Explore few-shot variations, reverse-engineer outputs, compare formats.</td>
+    </tr>
+    <tr>
+        <td><strong>Iterative Mindset</strong></td>
+        <td>Doesn’t stop at the first answer — improves, refines, compares.</td>
+        <td>Use multi-step prompting. Ask “how could this be better?” every time.</td>
+    </tr>
+    <tr>
+        <td><strong>Critical Evaluation</strong></td>
+        <td>Filters out hallucinated, vague, or biased results.</td>
+        <td>Fact-check outputs, create QA checklists, analyze weak outputs.</td>
+    </tr>
+</table>
+
+<p><strong>Pro Tip:</strong> Turn evaluation into a prompt too.<br>
+<code>"Rate this answer on clarity, accuracy, and usefulness. Suggest improvements."</code></p>
+
+
+<h2 id="section3">3. Avoid These Mistakes</h2>
+<p>Most prompt failures come from vague thinking, lazy phrasing, or lack of structure. Below are weak prompt patterns – and how to fix them through precision, framing, and purpose.</p>
+
+<table>
+    <tr>
+        <th style="background-color:#d4edda; color:#155724;">Effective Prompt</th>
+        <th style="background-color:#f8d7da; color:#721c24;">Weak Prompt</th>
+        <th>Why it fails (Smell)</th>
+    </tr>
+    <tr>
+        <td>"List 10 startup ideas and explain why each solves a real problem."</td>
+        <td>"What are 10 startup ideas?"</td>
+        <td><strong>Underspecified:</strong> No filter, no context, no value judgment.</td>
+    </tr>
+    <tr>
+        <td>"Compare the pros and cons of nuclear vs. solar energy in under 150 words."</td>
+        <td>"What do you think about nuclear energy?"</td>
+        <td><strong>Open-ended trap:</strong> No structure, no contrast, no constraint.</td>
+    </tr>
+    <tr>
+        <td>"Suggest 3 marketing slogans and explain what emotion each targets."</td>
+        <td>"Help me write a slogan."</td>
+        <td><strong>Creativity sink:</strong> No target audience, no tone, no theme → vague output.</td>
+    </tr>
+</table>
+
+<h3>Common Prompt Smells</h3>
+<ul>
+    <li><strong>Underspecified:</strong> The AI has too much freedom and gives trivial answers.</li>
+    <li><strong>Contextless:</strong> You forgot to say who it’s for or why it matters.</li>
+    <li><strong>Single-shot dump:</strong> You ask for too much in one go without stepwise thinking.</li>
+    <li><strong>Formatless:</strong> You didn’t say what structure you want back.</li>
+    <li><strong>Unframed request:</strong> "Help me" or "Give ideas" without angle or goal.</li>
+</ul>
+
+<p><strong>Pro Tip:</strong> Add one of these elements to almost any weak prompt to make it stronger:  
+<code>Audience • Purpose • Constraint • Comparison • Format • Emotion • Role</code></p>
+
+
+<h2 id="section4">4. Prompt Techniques</h2>
+<p>Prompting is not magic – it’s a language. Mastering different prompt types is like building a vocabulary of mental tools. Below are core techniques that let you control tone, structure, depth, and reasoning.</p>
+
+<h3>Basic Techniques</h3>
+<ul>
+    <li><strong>Role Prompts:</strong> Set a professional voice or perspective.<br>
+    <em>"You are a career coach. Write 5 tips for someone switching from marketing to data science."</em></li>
+
+    <li><strong>Few-Shot Prompts:</strong> Train the model by showing 1–3 example inputs and outputs.<br>
+    <em>"Translate to pirate speak:<br>- Hello → Ahoy<br>- Stop → Avast<br>- Friend → ?"</em></li>
+
+    <li><strong>Chain of Thought:</strong> Force logical step-by-step reasoning.<br>
+    <em>"Explain your reasoning step-by-step before answering: What is 17 x 19?"</em></li>
+
+    <li><strong>Reflective Prompts:</strong> Ask the model to self-critique or revise output.<br>
+    <em>"Here's a paragraph. Suggest 2 ways to improve clarity."</em></li>
+
+    <li><strong>Format Templates:</strong> Guide the output shape (table, JSON, bullets, etc.).<br>
+    <em>"List 3 productivity tools with pros and cons in a table."</em></li>
+</ul>
+
+<h3>Advanced Techniques</h3>
+<ul>
+    <li><strong>Multi-Step Prompting:</strong> Divide a task into sequential, manageable steps.<br>
+    <em>"Step 1: Generate an outline for a blog post. Step 2: Write the intro only."</em></li>
+
+    <li><strong>Prompt Chaining / Looping:</strong> Use one output as input to refine or expand.<br>
+    <em>"Here’s a draft. Rewrite it for clarity. Now shorten it. Now translate to German."</em></li>
+
+    <li><strong>Control Objectives:</strong> Explicitly set tone, target audience, style, and length.<br>
+    <em>"Explain Bitcoin to a 12-year-old. Use a friendly tone, max. 80 words."</em></li>
+
+    <li><strong>Scaffolding Templates:</strong> Use fixed structures to build consistent outputs.<br>
+    <em>"Summarize any article using:<br>- Main idea<br>- Surprising detail<br>- Actionable takeaway"</em></li>
+
+    <li><strong>Critique & Comparison Mode:</strong> Generate multiple outputs, compare and refine.<br>
+    <em>"Write two versions of a pitch. Evaluate which is stronger and explain why."</em></li>
+
+    <li><strong>Embedded Context:</strong> Feed long background info before task definition.<br>
+    <em>"Context: This is for a legal blog. Task: Explain GDPR to beginners."</em></li>
+
+    <li><strong>Structured Output:</strong> Force outputs into machine-friendly formats.<br>
+    <em>"Give me this info as JSON: 3 books, their authors, and publication years."</em></li>
+
+    <li><strong>Meta-Prompting:</strong> Ask the model to create or evaluate prompts.<br>
+    <em>"Generate the most effective prompt to help a student master Bayesian statistics in 3 sessions."</em></li>
+
+    <li><strong>Zero-Shot Instructional Prompting:</strong> Direct, no examples needed – best for binary or factual tasks.<br>
+    <em>"Classify the following email as spam or not spam based on tone, urgency, and language."</em></li>
+
+    <li><strong>Tree-of-Thought Prompting:</strong> Ask for multiple options + evaluations before any final answer.<br>
+    <em>"List 3 alternative solutions. For each, describe pros, cons, and how confident you are."</em></li>
+</ul>
+
+<p><strong>Pro Tip:</strong> Stack techniques together. Example:<br>
+<code>"As a UX researcher (role), summarize this interview (embedded context) in 3 key themes (format) for a team of designers (audience)."</code></p>
+
+
+
+<h2 id="section5">5. Advanced & Strategic</h2>
+<p>These are the techniques and mindsets that elevate you from competent to elite. Each section here represents a strategic capability — not just a trick, but a shift in how you design, evaluate, and deploy prompts with purpose.</p>
+
+<h3>Prompt Debugging & Failure Modes</h3>
+<p>Even expert prompts sometimes fail. But unlike casual users, high-level prompt engineers know how to reverse-engineer those failures. Debugging lets you turn vague, incorrect, or flat outputs into a systematic process for improvement. This is where amateurs give up—and professionals level up.</p>
+
+<h4>Common Failure Modes</h4>
+<ul>
+    <li><strong>Underspecification:</strong> Too vague → bland or generic output.</li>
+    <li><strong>Overload:</strong> Too many goals in one prompt → confusing results.</li>
+    <li><strong>Unclear Role:</strong> No defined perspective → tone mismatch.</li>
+    <li><strong>Format Drift:</strong> AI doesn’t know how to respond → structure breaks.</li>
+    <li><strong>Context Loss:</strong> Missing or buried information → hallucinations or irrelevant answers.</li>
+</ul>
+
+<h4>Debugging Tactics</h4>
+<ul>
+    <li><strong>Decompose:</strong> Split prompt into smaller units. What fails first?</li>
+    <li><strong>Add constraints:</strong> Limit word count, style, tone, structure.</li>
+    <li><strong>Force reasoning:</strong> Add “Show your steps” or “Think before answering.”</li>
+    <li><strong>Insert role + context:</strong> “You are X, writing for Y, with goal Z.”</li>
+    <li><strong>Benchmark outputs:</strong> Ask: “What would a great answer look like?”</li>
+</ul>
+
+<h4>Recovery Prompts</h4>
+<ul>
+    <li><em>"Why might this response be inaccurate or incomplete?"</em></li>
+    <li><em>"Improve this by clarifying structure and tightening logic."</em></li>
+    <li><em>"What question was I probably trying to ask?"</em></li>
+    <li><em>"What’s a more powerful version of this prompt?"</em></li>
+</ul>
+
+<p><strong>Pro Tip:</strong> A broken output isn’t failure – it’s feedback. Each glitch reveals how to reshape the next prompt.</p>
+
+<h3>Mental Models for Prompting</h3>
+<p>Great prompting isn’t about phrasing – it’s about framing. Mental models shape how you approach a task before you even type. They let you design prompts with structure, constraints, and insight, rather than trial and error. These models make your process replicable, scalable, and teachable.</p>
+
+<h4>Key Models</h4>
+<ul>
+    <li><strong>Information Funnel:</strong> Start wide (context), then narrow (task), then shape (format).<br>
+    <em>"You are a hiring manager. Context: we’re hiring for a creative role. Task: write 3 questions to test lateral thinking."</em></li>
+
+    <li><strong>Prototype Thinking:</strong> Every prompt is a prototype – test, measure, improve.<br>
+    <em>"Try 3 versions of this prompt with different levels of tone and complexity. Evaluate what works best."</em></li>
+
+    <li><strong>Constraint Framing:</strong> Set boundaries to guide creativity.<br>
+    <em>"Explain Einstein’s relativity using metaphors only – no numbers."</em></li>
+
+    <li><strong>Simulation Mode:</strong> Treat the AI like a sandboxed persona.<br>
+    <em>"You are a French philosophy professor. Debate the ethics of immortality with yourself."</em></li>
+
+    <li><strong>Prompt as Dialogue:</strong> Think in conversation, not commands.<br>
+    <em>"Let’s work step-by-step: first help me define the problem clearly."</em></li>
+</ul>
+
+<p><strong>Pro Tip:</strong> Don’t just think like a user. Think like a system architect. Prompting is architecture for cognition.</p>
+
+<h3>Prompt Quality Metrics</h3>
+<p>You can’t optimize what you don’t measure. Prompt quality metrics give you a systematic way to evaluate and evolve your prompt engineering skills. Instead of guessing, you score and iterate – like A/B testing for cognition. Elite prompt engineers don’t rely on intuition alone – they track performance.</p>
+
+<table>
+    <tr>
+        <th>Metric</th>
+        <th>What It Measures</th>
+        <th>Improvement Prompt</th>
+    </tr>
+    <tr>
+        <td><strong>Clarity</strong></td>
+        <td>Is the task clear, unambiguous, and goal-oriented?</td>
+        <td>"Rewrite this prompt to reduce vagueness or overload."</td>
+    </tr>
+    <tr>
+        <td><strong>Specificity</strong></td>
+        <td>Does it set constraints, style, audience, length?</td>
+        <td>"Add details about audience, tone, or desired format."</td>
+    </tr>
+    <tr>
+        <td><strong>Controllability</strong></td>
+        <td>How well does the output follow the requested structure?</td>
+        <td>"Force structure using bullets, JSON, or section labels."</td>
+    </tr>
+    <tr>
+        <td><strong>Transferability</strong></td>
+        <td>Can this prompt be reused across similar tasks?</td>
+        <td>"Modularize this prompt so it works for other topics."</td>
+    </tr>
+    <tr>
+        <td><strong>Feedback Sensitivity</strong></td>
+        <td>Does the AI respond to iterative tweaks or clarifications?</td>
+        <td>"How would you modify this prompt to better guide follow-up?"</td>
+    </tr>
+</table>
+
+<p><strong>Pro Tip:</strong> Score your prompts. 3/5 is improvable. 5/5 is a reusable asset. Treat prompts like evolving components, not one-time shots.</p>
+
+<h3>Using Prompts as Agents</h3>
+<p>Prompts aren’t just inputs – they can simulate autonomous behavior. By designing prompts as agents, you build reusable, modular logic that operates across time and context. This shifts AI from tool to teammate: proactive, memory-enabled, and purpose-driven. It's the foundation of multi-agent systems and long-term workflows.</p>
+
+<h4>Agent Patterns</h4>
+<ul>
+    <li><strong>Daily Assistant:</strong> Start your day with a personalized routine.<br>
+    <em>"Each morning, summarize the top 3 news stories about tech policy. Use a neutral tone. Include 1 link per item."</em></li>
+
+    <li><strong>Research Partner:</strong> Give an AI a research track with rules and evaluation criteria.<br>
+    <em>"You are my analyst. Scan this transcript. Extract claims, rate credibility, and suggest 1 counterpoint."</em></li>
+
+    <li><strong>Project Tracker:</strong> Let prompts manage checklists, goals, and blockers.<br>
+    <em>"Track progress on this list of tasks. Ask me once per day: 'What did you complete? What’s next?'"</em></li>
+
+    <li><strong>Creative Mentor:</strong> Use the AI to shape and challenge your process.<br>
+    <em>"When I paste lyrics, critique their rhythm and originality. Ask one question that could improve them."</em></li>
+</ul>
+
+<h4>Pro-Tier Strategies</h4>
+<ul>
+    <li><strong>Use system prompts:</strong> Define behavior before the user prompt ever hits.</li>
+    <li><strong>Persist state:</strong> Let the AI remember key facts or goals across sessions.</li>
+    <li><strong>Chain prompts with memory:</strong> Let each step refine the next – or loop until criteria are met.</li>
+</ul>
+
+<p><strong>Pro Tip:</strong> Think like a systems designer. Prompts aren't queries – they are processes with embedded intelligence.</p>
+
+<h2 id="section6">6. Expand Your Toolstack</h2>
+<p>Elite prompt engineers combine language models with complementary tools. Knowing when and how to use them turns general AI into a specialized force multiplier.</p>
+
+<table>
+    <tr><th>Use Case</th><th>Best Tool(s)</th><th>Pro Insight</th></tr>
+    <tr>
+        <td><strong>Image Generation</strong></td>
+        <td>DALL·E, Midjourney, Leonardo.ai</td>
+        <td>Midjourney gives artistic edge; DALL·E is stronger at edits and logic.</td>
+    </tr>
+    <tr>
+        <td><strong>Data Analysis</strong></td>
+        <td>ChatGPT Code Interpreter, Python (pandas, matplotlib)</td>
+        <td>Use prompt-generated Python code, then validate or refine in Colab/Jupyter.</td>
+    </tr>
+    <tr>
+        <td><strong>PDF/Text Summarization</strong></td>
+        <td>Claude 3, ChatGPT (with uploads), ChatPDF</td>
+        <td>Claude 3 has longer context; ChatGPT excels with structure & follow-ups.</td>
+    </tr>
+    <tr>
+        <td><strong>App/Web Prototyping</strong></td>
+        <td>Replit, Framer AI, Vercel AI SDK</td>
+        <td>Pair with code-generation prompts + iterative testing loops.</td>
+    </tr>
+    <tr>
+        <td><strong>Workflow Automation</strong></td>
+        <td>Zapier, Make.com, AutoGPT, LangChain</td>
+        <td>Design flows like: GPT → extract → format → send → log → alert.</td>
+    </tr>
+    <tr>
+        <td><strong>Music Creation & Analysis</strong></td>
+        <td>Suno, Magenta Studio, ChatGPT + MIDI Prompting</td>
+        <td>Generate lyrics, chord progressions or even full stems. Pair with DAWs like Ableton.</td>
+    </tr>
+</table>
+
+<h3>Underrated Stack Combos</h3>
+<ul>
+    <li><strong>Claude 3 + Excalidraw:</strong> Visual thinking with ultra-long memory for diagrams and mind maps.</li>
+    <li><strong>ChatGPT + Voice Control + Keyboard Macros:</strong> Turn prompts into verbal IDEs for code, text, or research.</li>
+    <li><strong>OpenRouter API + LangChain:</strong> Run multiple LLMs (GPT-4, Claude, Mistral) and pick the best in real time.</li>
+    <li><strong>Whisper + GPT + Zapier:</strong> Dictation → Interpretation → Automated Action → Logging.</li>
+    <li><strong>ChatGPT + Mermaid.js:</strong> Generate diagrams and logic maps on the fly (flowcharts, Gantt, etc.).</li>
+    <li><strong>GPT + Hex.tech:</strong> Build collaborative data notebooks using AI to generate and explain SQL, plots, and insights.</li>
+    <li><strong>Claude + Obsidian:</strong> Turn knowledge bases into living documents with long-context summarization + linking.</li>
+    <li><strong>Suno + ChatGPT + DAW:</strong> Generate music ideas, lyrics, and structures → refine them in real audio software.</li>
+</ul>
+
+<p><strong>Pro Tip:</strong> Stack tools like ingredients. The recipe matters more than the kitchen.</p>
+
+
+
+<h2 id="section7">7. 🧾 Prompt Engineering Skill Checklist</h2>
+<p>Use this checklist to track which techniques, mindsets, and tool integrations you've already mastered. Great for self-assessment, team onboarding, or training plans.</p>
+
+<form>
+  <fieldset>
+    <legend><strong>Fundamentals</strong></legend>
+    <label><input type="checkbox"> I can break complex prompts into smaller parts (Decomposition)</label><br>
+    <label><input type="checkbox"> I always specify audience, format, and tone</label><br>
+    <label><input type="checkbox"> I iterate prompts based on feedback/output</label><br>
+    <label><input type="checkbox"> I manage prompt context explicitly</label>
+  </fieldset>
+
+  <fieldset>
+    <legend><strong>Techniques</strong></legend>
+    <label><input type="checkbox"> I use Role Prompts to shift perspective</label><br>
+    <label><input type="checkbox"> I apply Few-Shot Examples to guide outputs</label><br>
+    <label><input type="checkbox"> I chain prompts across steps or versions</label><br>
+    <label><input type="checkbox"> I build reusable format templates</label>
+  </fieldset>
+
+  <fieldset>
+    <legend><strong>Advanced & Strategic</strong></legend>
+    <label><input type="checkbox"> I debug failed prompts systematically</label><br>
+    <label><input type="checkbox"> I use mental models (funnel, simulation, dialogue)</label><br>
+    <label><input type="checkbox"> I apply quality metrics to prompts</label><br>
+    <label><input type="checkbox"> I use prompts as agents or system components</label>
+  </fieldset>
+</form>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+</body>
+</html>
